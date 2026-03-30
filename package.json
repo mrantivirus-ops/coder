@@ -1,0 +1,64 @@
+{
+  "name": "cls-key-stack-editor",
+  "displayName": "CLS Key Stack Editor",
+  "description": "Stack API keys, chat with Claude via Puter, and apply controlled file edits from VS Code.",
+  "version": "0.0.2",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cls.addApiKey",
+    "onCommand:cls.selectActiveApiKey",
+    "onCommand:cls.removeApiKey",
+    "onCommand:cls.listApiKeys",
+    "onCommand:cls.applyEdits",
+    "onCommand:cls.openChat"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cls.addApiKey",
+        "title": "CLS: Add API Key"
+      },
+      {
+        "command": "cls.selectActiveApiKey",
+        "title": "CLS: Select Active API Key"
+      },
+      {
+        "command": "cls.removeApiKey",
+        "title": "CLS: Remove API Key"
+      },
+      {
+        "command": "cls.listApiKeys",
+        "title": "CLS: List API Keys"
+      },
+      {
+        "command": "cls.applyEdits",
+        "title": "CLS: Apply File Edits"
+      },
+      {
+        "command": "cls.openChat",
+        "title": "CLS: Open Chat (Puter Claude)"
+      }
+    ],
+    "configuration": {
+      "title": "CLS",
+      "properties": {
+        "cls.allowOutsideWorkspace": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow file edits outside the currently opened workspace folder."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "check": "node --check extension.js"
+  },
+  "devDependencies": {}
+}
